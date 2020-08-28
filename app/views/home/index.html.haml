@@ -36,11 +36,6 @@ or a link
   .fa.fa-flag
   Homepage
 
-= simple_form_for @course do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-  = f.input :title
-  = f.label :description
-  = f.rich_text_area :description
-  /= f.submit 'Save'
-  = f.button :submit
+= link_to courses_path, class: 'btn btn-success' do
+  .fa.fa-book
+  Courses
