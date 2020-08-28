@@ -31,7 +31,7 @@ end
 
 gem 'hamlit-rails', '~> 0.2.3'
 gem 'html2haml', '~> 2.2'
-gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13.0'
 gem 'simple_form'
