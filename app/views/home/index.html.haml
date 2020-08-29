@@ -13,15 +13,60 @@
           %button.btn.btn-primary.btn-sm{:type => "submit"}
             %span.fa.fa-search{"aria-hidden" => "true"}
 
+.card-group
+  .card.card-body
+    %h1
+      .fa.fa-graduation-cap
+    -# = pluralize(Course.approved.published.count, 'online courses')
+    = Course.count
+    online courses
+    .row
+    %small Explore a variety of fresh topics
+  .card
+    .card-body
+      %h1
+        .fa.fa-chalkboard-teacher
+        /.fa.fa-brain
+      -# = pluralize(Course.distinct.count(:user_id), 'expert instructors')
+      = Course.distinct.count(:user_id)
+      expert instructors
+      .row
+      %small Find the right instructor for you
+  .card
+    .card-body
+      %h1
+        .fa.fa-user-graduate
+      -# = pluralize(User.count, 'active learners')
+      = User.count
+      active learners
+      .row
+      %small Join the knowledge sharing community
+  .card
+    .card-body
+      %h1
+        .fa.fa-infinity
+      Lifetime access
+      .row
+      %small Learn on your schedule
+
 %hr
 %h2
   Popular courses
+  .card-columns
+    - @courses.each do |course|
+      = render 'courses/course', course: course
 %hr
 %h2
   Top rated courses
+  .card-columns
+    - @courses.each do |course|
+      = render 'courses/course', course: course
 %hr
 %h2
-  Most recent courses
+  Latest courses
+  .card-columns
+    - @latest_courses.each do |course|
+      = render 'courses/course', course: course
 .fa.fa-flag
 
 or a link
