@@ -2,8 +2,11 @@
   Courses:
   = @courses.count
 
-.card-columns
-  - @courses.each do |course|
-    = render 'courses/course', course: course
+.row
+  .col-md-2
+  .col-md-10
+    .card-columns
+      - @courses.each do |course|
+        = render 'courses/course', course: course
 
 %br
