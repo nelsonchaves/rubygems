@@ -16,4 +16,5 @@ class Course < ApplicationRecord
   LANGUAGES = [ "English", "Russian", "Portuguese", "Spanish"]
   def self.languages
     LANGUAGES.map { |language| [ language, language ] }
+  end
 end
