@@ -8,6 +8,9 @@
       = f.search_field :title_cont, placeholder: 'Title', class: 'form-control form-control-sm'
       = f.search_field :short_description_cont, placeholder: 'Description', class: 'form-control form-control-sm'
       = f.search_field :language_cont, placeholder: 'Language', class: 'form-control form-control-sm'
+      = f.select :language_cont, [ "English", "Russian", "Portuguese"], include_blank: true, class: 'form-control form-control-sm'
+
+
       = f.search_field :level_cont, placeholder: 'Level', class: 'form-control form-control-sm'
       = f.search_field :price_eq, placeholder: 'Price', class: 'form-control form-control-sm'
       = f.search_field :user_email_cont, placeholder: 'User Email', class: 'form-control form-control-sm'
