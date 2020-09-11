@@ -39,3 +39,4 @@ gem 'faker'
 gem 'devise'
 gem 'friendly_id', '~> 5.2.4' #nice URLs and hide IDs
 gem 'ransack'
+gem 'public_activity'

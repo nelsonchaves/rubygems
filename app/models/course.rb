@@ -22,4 +22,7 @@ class Course < ApplicationRecord
   def self.levels
     LEVELS.map { |level| [ level, level ] }
   end
+
+  include PublicActivity::Model
+  
 end
