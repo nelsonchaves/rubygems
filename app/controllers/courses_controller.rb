@@ -1,8 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
-  # GET /courses
-  # GET /courses.json
   def index
     # if params[:title]
     #   @courses = Course.where('title ILIKE ?', "%#{params[:title]}%") #case-insensitive
@@ -15,22 +13,16 @@ class CoursesController < ApplicationController
     @courses = @ransack_courses.result.includes(:user)
   end
 
-  # GET /courses/1
-  # GET /courses/1.json
   def show
   end
 
-  # GET /courses/new
   def new
     @course = Course.new
   end
 
-  # GET /courses/1/edit
   def edit
   end
 
-  # POST /courses
-  # POST /courses.json
   def create
     @course = Course.new(course_params)
     @course.user = current_user
