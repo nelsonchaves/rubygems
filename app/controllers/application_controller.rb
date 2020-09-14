@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-
   before_action :authenticate_user!
+
+  include Pundit
 
   include PublicActivity::StoreController #save current_user using gem PublicActivity
 
