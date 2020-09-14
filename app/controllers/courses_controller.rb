@@ -21,6 +21,7 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    authorize @course
   end
 
   def create

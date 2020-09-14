@@ -4,4 +4,8 @@ class CoursePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def edit?
+    @user.has_role?:admin
+  end
 end
