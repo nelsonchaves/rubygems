@@ -4,10 +4,14 @@ class Role < ApplicationRecord
   belongs_to :resource,
              :polymorphic => true,
              :optional => true
-  
+
   validates :resource_type,
             :inclusion => { :in => Rolify.resource_types },
             :allow_nil => true
 
   scopify
+
+  validates :name, presence: true
+  validates_uniqueness_of :name
+
 end
