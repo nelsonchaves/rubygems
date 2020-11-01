@@ -1,22 +1,40 @@
-%hr
-%footer
+%footer.footer.bg-dark.text-light
   .container
+    %br
     .row
       .col-md-4
         Copyright
-        ®
+        ©
         = Time.now.year
-        CoursePlatform Sp. z o.o.
+        Nelson Chaves
         .row
-        .fa.fa-envelope
-        = mail_to 'nelsonchavespro@gmail.com'
-        .row
+        = mail_to 'nelson@nelsonchaves.com' do
+          .fa.fa-envelope
+        = link_to "https://twitter.com/nelsonchaves", target: :_blank do
+          .fab.fa-twitter
+        = link_to "https://instagram.com/nelsonchaves", target: :_blank do
+          .fab.fa-instagram
+        = link_to "https://github.com/nelsonchaves", target: :_blank do
+          .fab.fa-github
+        /.row
+        /%script{:src => "https://platform.linkedin.com/in.js", :type => "text/javascript"}
+        /  :cdata
+        /    lang: en_US
+        /%script{"data-counter" => "top", "data-id" => "42835367", :type => "IN/FollowCompany"}
       .col-md-4
-        Privacy Policy
+        = link_to "https://nelsonchaves.com", target: :_blank do
+          Blog
+          .fa.fa-external-link-alt
         .row
-        Terms and Conditions
+        = link_to "https://saas.corsego.com", target: :_blank do
+          SaaS boilerplate
+          .fa.fa-external-link-alt
+        .row
+        = link_to 'Teach on Rubygem', new_course_path
       .col-md-4
-        About us
+        -# = link_to 'About', about_path
         .row
-        = link_to 'Teach on EDURGE', new_course_path
+        -# = link_to 'Privacy', privacy_path
+        .row
+        -# = link_to 'Terms', terms_path
 %br
