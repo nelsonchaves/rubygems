@@ -14,8 +14,13 @@
   %table.table.table-bordered.table-striped.table-sm
     %thead
       %tr
-        %th Course
-        %th User
+        %th ID
+        %th
+          .fa.fa-graduation-cap
+          Course
+        %th
+          .fa.fa-user
+          User
         %th Rating
         %th Review
         %th Price
@@ -26,6 +31,7 @@
     %tbody
       - @enrollments.each do |enrollment|
         %tr
+          %td= enrollment.id
           %td= enrollment.course
           %td= enrollment.user
           %td= enrollment.rating
