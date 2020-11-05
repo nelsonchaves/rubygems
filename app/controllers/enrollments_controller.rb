@@ -4,7 +4,7 @@ class EnrollmentsController < ApplicationController
 
   def index
     @enrollments = Enrollment.all
-    authorize @enrollments
+    # authorize @enrollments
   end
 
   def show
