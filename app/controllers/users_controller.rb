@@ -2,11 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
-    # @users = User.all.order(created_at: :desc)
-
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
-    authorize @user
+    authorize @users
   end
 
   def show
