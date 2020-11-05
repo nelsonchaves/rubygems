@@ -7,6 +7,10 @@ class Enrollment < ApplicationRecord
   validates_uniqueness_of :user_id, scope: :course_id # user cant be subscribed to the same course twice
   validates_uniqueness_of :course_id, scope: :user_id # user cant be subscribed to the same course twice
 
+  validate :cant_subscribe_to_own_course
+
+  scope :pending_review, -> { where(rating: [0, nil, ""], review: [0, nil, ""]) }
+
   def to_s
     user.to_s + " " + course.to_s
   end
