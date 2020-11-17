@@ -5,16 +5,16 @@ class EnrollmentPolicy < ApplicationPolicy
     end
   end
 
-  def show?
+  def index?
     @user.has_role?(:admin)
   end
 
   def edit?
-    @record.user_id == @user.id
+    @record.user == @user
   end
 
   def update?
-    @record.user_id == @user.id
+    @record.user == @user
   end
 
   def destroy?
