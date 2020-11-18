@@ -22,10 +22,10 @@
         -#   = link_to users_path, class: 'nav-link' do
         -#     .fa.fa-users
         -#     Users
-        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(enrollments_path)}"}
-          = link_to enrollments_path, class: 'nav-link' do
-            .fa.fa-lock-open
-            Enrollments
+        -# %li.nav-item{class: "#{'active font-weight-bold' if current_page?(enrollments_path)}"}
+        -#   = link_to enrollments_path, class: 'nav-link' do
+        -#     .fa.fa-lock-open
+        -#     Enrollments
 
         %li.nav-item.dropdown
           %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
@@ -34,12 +34,12 @@
             = link_to users_path, class: "dropdown-item" do
               .fa.fa-users
               Users
-            = link_to edit_user_registration_path, class: "dropdown-item" do
-              .fa.fa-cog
-              %b Account settings
-            = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
-              .fa.fa-sign-out-alt
-              %b Sign out
+            = link_to enrollments_path, class: 'dropdown-item' do
+              .fa.fa-lock-open
+              Enrollments
+            = link_to home_activity_path, class: 'dropdown-item' do
+              .fa.fa-bell
+              Activity
 
       /SEARCH IN NAVBAR
       = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
