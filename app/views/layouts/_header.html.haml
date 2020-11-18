@@ -26,20 +26,34 @@
         -#   = link_to enrollments_path, class: 'nav-link' do
         -#     .fa.fa-lock-open
         -#     Enrollments
-
-        %li.nav-item.dropdown
-          %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Admin
-          .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "adminDropdown"}
-            = link_to users_path, class: "dropdown-item" do
-              .fa.fa-users
-              Users
-            = link_to enrollments_path, class: 'dropdown-item' do
-              .fa.fa-lock-open
-              Enrollments
-            = link_to home_activity_path, class: 'dropdown-item' do
-              .fa.fa-bell
-              Activity
+        - if current_user.has_role?(:teacher)
+          %li.nav-item.dropdown
+            %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Admin
+            .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "adminDropdown"}
+              = link_to users_path, class: "dropdown-item" do
+                .fa.fa-users
+                Users
+              = link_to enrollments_path, class: 'dropdown-item' do
+                .fa.fa-lock-open
+                Enrollments
+              = link_to home_activity_path, class: 'dropdown-item' do
+                .fa.fa-bell
+                Activity
+        - if current_user.has_role?(:admin)
+          %li.nav-item.dropdown
+            %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Admin
+            .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "adminDropdown"}
+              = link_to users_path, class: "dropdown-item" do
+                .fa.fa-users
+                Users
+              = link_to enrollments_path, class: 'dropdown-item' do
+                .fa.fa-lock-open
+                Enrollments
+              = link_to home_activity_path, class: 'dropdown-item' do
+                .fa.fa-bell
+                Activity
 
       /SEARCH IN NAVBAR
       = search_form_for @ransack_courses, as: :courses_search, url: courses_path do |f|
@@ -57,10 +71,10 @@
               %button.btn.btn-primary.btn-sm{:type => "submit"}
                 %span.fa.fa-search{"aria-hidden" => "true"}
       %ul.navbar-nav.mr-right
-        %li.nav-item{class: "#{'active font-weight-bold' if current_page?(home_activity_path)}"}
-          = link_to home_activity_path, class: 'nav-link' do
-            .fa.fa-bell
-            Activity
+        -# %li.nav-item{class: "#{'active font-weight-bold' if current_page?(home_activity_path)}"}
+        -#   = link_to home_activity_path, class: 'nav-link' do
+        -#     .fa.fa-bell
+        -#     Activity
         %li.nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             %b= current_user.email
