@@ -57,8 +57,12 @@
             .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "teacherDropdown"}
               = link_to new_course_path, class: "dropdown-item" do
                 .fa.fa-plus
-                .fa.fa-graduation-capt
+                .fa.fa-graduation-cap
                 New Course
+              = link_to created_courses_path, class: "dropdown-item" do
+                .fa.fa-plus
+                .fa.fa-graduation-cap
+                My Courses
 
         - if current_user.has_role?(:admin)
           %li.nav-item.dropdown
