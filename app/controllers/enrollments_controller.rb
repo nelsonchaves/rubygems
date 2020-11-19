@@ -12,6 +12,11 @@ class EnrollmentsController < ApplicationController
     authorize @enrollments
   end
 
+  def my_students
+    @enrollments = Enrollment.joins(:course).where(courses: {user: current_user})
+    render 'index'
+  end
+
   def show
   end
 
