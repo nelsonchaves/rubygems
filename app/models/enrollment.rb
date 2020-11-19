@@ -21,6 +21,10 @@ class Enrollment < ApplicationRecord
     user.to_s + " " + course.to_s
   end
 
+  after_save do
+    course.update_rating
+  end
+
   protected
 
   def cant_subscribe_to_own_course
