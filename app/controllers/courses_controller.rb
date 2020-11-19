@@ -15,6 +15,11 @@ class CoursesController < ApplicationController
     @pagy, @courses = pagy(@ransack_courses.result.includes(:user))
   end
 
+  def purchased
+    @courses = Course.joins(:enrollments).where(enrollments: {user: current_user})
+    render 'index'
+  end
+
   def show
     @lessons = @course.lessons
   end
