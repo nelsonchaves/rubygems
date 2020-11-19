@@ -20,6 +20,11 @@ class CoursesController < ApplicationController
     render 'index'
   end
 
+  def pending_review
+    @pagy, @courses = @pagy(Course.joins(:enrollments).where(enrollments: {user: current_user}))
+    render 'index'
+  end
+
   def show
     @lessons = @course.lessons
   end
