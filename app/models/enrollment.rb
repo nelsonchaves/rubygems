@@ -22,7 +22,9 @@ class Enrollment < ApplicationRecord
   end
 
   after_save do
-    course.update_rating
+    unless rating.nil? || rating.zero?
+      course.update_rating
+      
   end
 
   protected
