@@ -60,10 +60,11 @@
                 .fa.fa-graduation-cap
                 New Course
               = link_to created_courses_path, class: "dropdown-item" do
-                .fa.fa-plus
                 .fa.fa-graduation-cap
                 My Courses
-
+              = link_to my_students_enrollments_path, class: "dropdown-item" do
+                .fa.fa-users
+                My Students
         - if current_user.has_role?(:admin)
           %li.nav-item.dropdown
             %a#adminDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
