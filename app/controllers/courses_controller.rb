@@ -21,7 +21,7 @@ class CoursesController < ApplicationController
   end
 
   def pending_review
-    @pagy, @courses = @pagy(Course.joins(:enrollments).where(enrollments: {user: current_user}))
+    @pagy, @courses = @pagy(Course.joins(:enrollments).merge(Enrollment.pending_review.where(user: current_user)))
     render 'index'
   end
 
