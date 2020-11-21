@@ -56,25 +56,44 @@
     .row
     %small Learn on your schedule
 
+
+
 %hr
 %h2
+  .fa.fa-user-graduate
+  Continue Learning
+.card-columns
+  - @purchased_courses.each do |course|
+    = render 'courses/course', course: course
+%hr
+%h2
+  .fa.fa-chart-line
   Popular courses
-  .card-columns
-    - @courses.each do |course|
-      = render 'courses/course', course: course
+.card-columns
+  - @popular_courses.each do |course|
+    = render 'courses/course', course: course
 %hr
 %h2
+  .fa.fa-star
   Top rated courses
-  .card-columns
-    - @courses.each do |course|
-      = render 'courses/course', course: course
+.card-columns
+  - @top_rated_courses.each do |course|
+    = render 'courses/course', course: course
 %hr
 %h2
+  .fa.fa-clock
   Latest courses
-  .card-columns
-    - @latest_courses.each do |course|
-      = render 'courses/course', course: course
-.fa.fa-flag
+.card-columns
+  - @latest_courses.each do |course|
+    = render 'courses/course', course: course
+
+%hr
+%h2
+  .fa.fa-comment
+  What our students have to say
+.card-columns
+  - @latest_good_reviews.each do |enrollment|
+    = render 'enrollments/enrollment', enrollment: enrollment
 
 or a link
 = link_to root_path, class: 'btn btn-success' do
