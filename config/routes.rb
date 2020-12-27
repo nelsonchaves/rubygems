@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get 'activity', to: 'home#activity'
   get 'analytics', to: 'home#analytics'
 
-
-
-
   resources :enrollments do
     get :my_students, on: :collection
   end
@@ -32,5 +29,5 @@ Rails.application.routes.draw do
   # get 'charts/users_per_day', to: 'charts#users_per_day'
   # get 'charts/enrollments_per_day', to: 'charts#enrollments_per_day'
   # get 'charts/course_popularity', to: 'charts#course_popularity'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
 end
